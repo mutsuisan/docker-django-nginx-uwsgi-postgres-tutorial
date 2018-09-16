@@ -33,7 +33,7 @@ services:
         # command: uwsgi  --emperor uwsgi.ini         
         command: uwsgi --ini uwsgi.ini
         ports:
-        - "8002:8000"
+        - "8000:8000"
         volumes:
         - ./app:/docker_app
         depends_on:
