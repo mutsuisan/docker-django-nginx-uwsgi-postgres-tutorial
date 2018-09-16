@@ -1,4 +1,4 @@
-"""django_rest_framework_tutorial URL Configuration
+"""django_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -16,13 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from musics import views
 
-router = DefaultRouter()
-router.register(r'music', views.MusicViewSet, base_name='music')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls, namespace='api'), name='api'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
