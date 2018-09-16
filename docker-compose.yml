@@ -5,9 +5,9 @@ services:
       container_name: postgres-container
       image: postgres
       environment:
-        POSTGRES_DB: {DB NAME}
-        POSTGRES_USER: {USER NAME}
-        POSTGRES_PASSWORD: {PASSWORD}
+        POSTGRES_DB: [dbname]
+        POSTGRES_USER: [username]
+        POSTGRES_PASSWORD: [password]
       ports:
         - "5430:5432"
         # (HOST:CONTAINER)
@@ -19,9 +19,9 @@ services:
         build: ./nginx
         restart: always
         ports:
-        - "8080:80" 
+        - "80:80"
         volumes:        
-        - app_data:/docker_app
+        - ./app:/docker_app
         - ./log:/var/log/nginx              
         depends_on:
         - app
@@ -35,10 +35,9 @@ services:
         ports:
         - "8002:8000"
         volumes:
-        - app_data:/docker_app
+        - ./app:/docker_app
         depends_on:
         - db
 
 volumes:
     pgdata:
-    app_data:
