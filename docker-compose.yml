@@ -5,7 +5,9 @@ services:
       container_name: postgres-container
       image: postgres
       environment:
-        POSTGRES_PASSWORD: password123
+        POSTGRES_DB: {DB NAME}
+        POSTGRES_USER: {USER NAME}
+        POSTGRES_PASSWORD: {PASSWORD}
       ports:
         - "5430:5432"
         # (HOST:CONTAINER)
